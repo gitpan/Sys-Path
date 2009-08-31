@@ -1,0 +1,57 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.55.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 add24261b36cbdf7016324eb2734c44fb16b755e Build.PL
+SHA1 621b8eb3f081aa7041ffbf76ab7d604c9a08f9d2 Changes
+SHA1 0fe0a4c9f85934dda737ae102d205033c0258cba MANIFEST
+SHA1 9daafedb99778a14e8d9775d81acfcaf06d95510 META.yml
+SHA1 4682dee24eaf8c58a28fc4ad30a2726d9c4a386e Makefile.PL
+SHA1 28665ac8a1ce937521f484d924c559b3a8629654 README
+SHA1 9941120adc70ab9078a6b54da00ea05165470e38 default/SysPathConfig.pm
+SHA1 7d5a4446d14249c3d6ecb62c0f58403d5463d3ac examples/Sys-Path-Example1/.gitignore
+SHA1 a47781d0315767028d83c592e50524bbf69474af examples/Sys-Path-Example1/Build.PL
+SHA1 9668d26f4a1626a9666bf76c3619bb381c3ef5d6 examples/Sys-Path-Example1/Build2.PL
+SHA1 47aadb362f5f45b16affcc5b8b69c2c94c2fff33 examples/Sys-Path-Example1/Changes
+SHA1 dbb6f5315b3b9a1345f70768225e267a44572bc1 examples/Sys-Path-Example1/MANIFEST
+SHA1 802a3f4b804e09e19d7971fd13150f6222647e16 examples/Sys-Path-Example1/README
+SHA1 d09fe9d2863d84f1bd8d40c673d6816cd5f258a4 examples/Sys-Path-Example1/etc/etc-test.txt
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 examples/Sys-Path-Example1/etc/project/blah
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 examples/Sys-Path-Example1/etc/project/blah2.txt
+SHA1 507ddb5adb893c354d3fb559cc2b7d1c162437d3 examples/Sys-Path-Example1/lib/Sys/Path/Example1.pm
+SHA1 d28471a5e4cee6e532e7dd087a04cded83ea633f examples/Sys-Path-Example1/lib/Sys/Path/Example1/SysPathConfig.pm
+SHA1 0e955b66534676c5311cae5168c617b8c22576a0 examples/Sys-Path-Example1/share/sys-path-example1/README
+SHA1 2dfa563e8f975f085670cab48fab13d3ceea679f examples/Sys-Path-Example1/t/00-load.t
+SHA1 95c755e4fd54a168fa8353bf3e95d4ae7bc6f160 examples/Sys-Path-Example1/t/01_check-example-syspathconfig.t
+SHA1 904af31322abeaab861b771d895d609a867d3001 examples/Sys-Path-Example1/t/02_Module-Build-SysPath.t
+SHA1 6b40f9558ba5c3c0159e16b037e0f47677d14703 examples/Sys-Path-Example1/t/boilerplate.t
+SHA1 0b1c5a2d59be6bfa7d60c64cd964fea6a0331705 examples/Sys-Path-Example1/t/pod-coverage.t
+SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 examples/Sys-Path-Example1/t/pod.t
+SHA1 8b3eaf08bdc5a909c738d476ec7f3dc4a240c41e inc/MyBuilder.pm
+SHA1 5b586739e241b4417b3f7ecc7c4f80af7d87bd7d lib/Module/Build/SysPath.pm
+SHA1 258e0116a36586618e99e34898e70082ab6c041a lib/Sys/Path.pm
+SHA1 605f05a5336cc37a476bb10b218f5ad1a2bd340d t/00_compile.t
+SHA1 41533fbd463e42d2ecf1e119eca910c16809d13e t/distribution.t
+SHA1 10c564e5ffe84748070827b350edbf3d6b832b20 t/fixme.t
+SHA1 0b1c5a2d59be6bfa7d60c64cd964fea6a0331705 t/pod-coverage.t
+SHA1 57ff498904246d147098ae9a34b38f38571ba18e t/pod-spell.t
+SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 t/pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iEYEARECAAYFAkqcPAsACgkQC0OgUPgL2SdDcQCgjWYQStLkvRTTlCo8a6SWRzFD
+nOcAn0oek7bUCrNFGuWEo9hccMVVP8Vo
+=NOVt
+-----END PGP SIGNATURE-----
