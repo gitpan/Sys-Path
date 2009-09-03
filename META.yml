@@ -1,6 +1,6 @@
 ---
 name: Sys-Path
-version: 0.02
+version: 0.03
 author:
   - 'Jozef Kutej <jkutej@cpan.org>'
 abstract: get/configure system paths
@@ -21,7 +21,7 @@ provides:
     version: 0.01
   Sys::Path:
     file: lib/Sys/Path.pm
-    version: 0.02
+    version: 0.03
 generated_by: Module::Build version 0.33
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

@@ -14,12 +14,11 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 db6c99fb41486a232ea822508d6dfb6be3e7e72b Build.PL
-SHA1 621b8eb3f081aa7041ffbf76ab7d604c9a08f9d2 Changes
-SHA1 0fe0a4c9f85934dda737ae102d205033c0258cba MANIFEST
-SHA1 ac7a63efcd40bc831a35a69f99e5b75980641ca4 META.yml
-SHA1 4682dee24eaf8c58a28fc4ad30a2726d9c4a386e Makefile.PL
-SHA1 28665ac8a1ce937521f484d924c559b3a8629654 README
+SHA1 18de8477d80dadbc80b5f01550eb72a54a45dd30 Build.PL
+SHA1 3e59efd7b519eb043e5bd772852dc770cda16f17 Changes
+SHA1 4ec14cff74b791db2052ab544c1687f82f3456e1 MANIFEST
+SHA1 4060f90b7df19ab5c9d60cb902bb5e7eb57ad1dd META.yml
+SHA1 d8d6507791539ad197ec9bb787d67432f13d6a5b README
 SHA1 9941120adc70ab9078a6b54da00ea05165470e38 default/SysPathConfig.pm
 SHA1 7d5a4446d14249c3d6ecb62c0f58403d5463d3ac examples/Sys-Path-Example1/.gitignore
 SHA1 a47781d0315767028d83c592e50524bbf69474af examples/Sys-Path-Example1/Build.PL
@@ -31,7 +30,7 @@ SHA1 d09fe9d2863d84f1bd8d40c673d6816cd5f258a4 examples/Sys-Path-Example1/etc/etc
 SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 examples/Sys-Path-Example1/etc/project/blah
 SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 examples/Sys-Path-Example1/etc/project/blah2.txt
 SHA1 507ddb5adb893c354d3fb559cc2b7d1c162437d3 examples/Sys-Path-Example1/lib/Sys/Path/Example1.pm
-SHA1 d28471a5e4cee6e532e7dd087a04cded83ea633f examples/Sys-Path-Example1/lib/Sys/Path/Example1/SysPathConfig.pm
+SHA1 5d3e0d7bfdc8baf4d204fbcabe01adcc7c6cdfec examples/Sys-Path-Example1/lib/Sys/Path/Example1/SysPathConfig.pm
 SHA1 0e955b66534676c5311cae5168c617b8c22576a0 examples/Sys-Path-Example1/share/sys-path-example1/README
 SHA1 2dfa563e8f975f085670cab48fab13d3ceea679f examples/Sys-Path-Example1/t/00-load.t
 SHA1 95c755e4fd54a168fa8353bf3e95d4ae7bc6f160 examples/Sys-Path-Example1/t/01_check-example-syspathconfig.t
@@ -40,8 +39,8 @@ SHA1 6b40f9558ba5c3c0159e16b037e0f47677d14703 examples/Sys-Path-Example1/t/boile
 SHA1 0b1c5a2d59be6bfa7d60c64cd964fea6a0331705 examples/Sys-Path-Example1/t/pod-coverage.t
 SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 examples/Sys-Path-Example1/t/pod.t
 SHA1 8b3eaf08bdc5a909c738d476ec7f3dc4a240c41e inc/MyBuilder.pm
-SHA1 5b586739e241b4417b3f7ecc7c4f80af7d87bd7d lib/Module/Build/SysPath.pm
-SHA1 2000693d8f772356d06e60a5509e4a0db4f7d75d lib/Sys/Path.pm
+SHA1 8d83bf5d2e3ee3e578d6765f3726a6bb37f6e713 lib/Module/Build/SysPath.pm
+SHA1 386db2e1176ca69f1603474eaf5b2e7de33fbce1 lib/Sys/Path.pm
 SHA1 605f05a5336cc37a476bb10b218f5ad1a2bd340d t/00_compile.t
 SHA1 41533fbd463e42d2ecf1e119eca910c16809d13e t/distribution.t
 SHA1 10c564e5ffe84748070827b350edbf3d6b832b20 t/fixme.t
@@ -51,7 +50,7 @@ SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.9 (GNU/Linux)
 
-iEYEARECAAYFAkqdiT4ACgkQC0OgUPgL2SdLLgCglfrhtT9yBqrdATMNMhFFlJ9e
-nCcAnA/uAbsuPGc2LLurq5QfHEOoucsJ
-=j4nk
+iEYEARECAAYFAkqfbtYACgkQC0OgUPgL2ScE2gCfYp7ALjD6Bwj5RpmneaijvCoJ
+4AoAniiL1GyY+isfhGRixeIBLZRql8hZ
+=+lw8
 -----END PGP SIGNATURE-----

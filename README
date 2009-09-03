@@ -143,14 +143,6 @@ METHODS
 
     Action that should be run after Module::Build ACTION_install.
 
-  find_distribution_root(__PACKAGE__)
-
-    Find the root folder of distribution by going up the folder structure.
-
-  post_new
-
-    Function to be invoked after Module::Build.
-
 AUTHOR
     Jozef Kutej, `<jkutej at cpan.org>'
 
