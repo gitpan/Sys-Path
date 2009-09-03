@@ -24,6 +24,8 @@ our $VERSION = '0.01';
 
 use base 'Module::Build';
 use Sys::Path;
+use List::MoreUtils 'any';
+use FindBin '$Bin';
 
 =head2 new
 
@@ -45,7 +47,7 @@ sub new {
         eval "use $module"; die $@ if $@;
     };
     
-    my $distribution_root = $self->find_distribution_root();
+    my $distribution_root = $builder->find_distribution_root();
     
     foreach my $path_type ($module->_path_types) {
         my $sys_path = $module->$path_type;
@@ -138,10 +140,14 @@ Find the root folder of distribution by going up the folder structure.
 
 sub find_distribution_root {
     my $self            = shift;
-    my $module_name     = shift || $builder->module_name;
-
+    my $module_name     = shift || $self->module_name;
+    
     my $module_filename = $module_name.'.pm';
     $module_filename =~ s{::}{/}g;
+    if (not exists $INC{$module_filename}) {
+        eval 'use '.$module_name;
+        die $@ if $@;
+    }
     $module_filename = File::Spec->rel2abs($INC{$module_filename});
     
     my @path = File::Spec->splitdir($module_filename);

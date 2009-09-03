@@ -15,13 +15,13 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 18de8477d80dadbc80b5f01550eb72a54a45dd30 Build.PL
-SHA1 3e59efd7b519eb043e5bd772852dc770cda16f17 Changes
+SHA1 9aa604183823973867b2195026a01d8b3aa18b9e Changes
 SHA1 4ec14cff74b791db2052ab544c1687f82f3456e1 MANIFEST
-SHA1 4060f90b7df19ab5c9d60cb902bb5e7eb57ad1dd META.yml
-SHA1 d8d6507791539ad197ec9bb787d67432f13d6a5b README
+SHA1 d28fabcf9eccbe16f83ffe2b2af50d6ef6c2e9ea META.yml
+SHA1 7f7728ed8af59c1aef3d972c33c2f043eb06143c README
 SHA1 9941120adc70ab9078a6b54da00ea05165470e38 default/SysPathConfig.pm
 SHA1 7d5a4446d14249c3d6ecb62c0f58403d5463d3ac examples/Sys-Path-Example1/.gitignore
-SHA1 a47781d0315767028d83c592e50524bbf69474af examples/Sys-Path-Example1/Build.PL
+SHA1 dccd8bacc9fdb2ba05e42ee3206f088f0a8f0d91 examples/Sys-Path-Example1/Build.PL
 SHA1 9668d26f4a1626a9666bf76c3619bb381c3ef5d6 examples/Sys-Path-Example1/Build2.PL
 SHA1 47aadb362f5f45b16affcc5b8b69c2c94c2fff33 examples/Sys-Path-Example1/Changes
 SHA1 dbb6f5315b3b9a1345f70768225e267a44572bc1 examples/Sys-Path-Example1/MANIFEST
@@ -39,8 +39,8 @@ SHA1 6b40f9558ba5c3c0159e16b037e0f47677d14703 examples/Sys-Path-Example1/t/boile
 SHA1 0b1c5a2d59be6bfa7d60c64cd964fea6a0331705 examples/Sys-Path-Example1/t/pod-coverage.t
 SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 examples/Sys-Path-Example1/t/pod.t
 SHA1 8b3eaf08bdc5a909c738d476ec7f3dc4a240c41e inc/MyBuilder.pm
-SHA1 8d83bf5d2e3ee3e578d6765f3726a6bb37f6e713 lib/Module/Build/SysPath.pm
-SHA1 386db2e1176ca69f1603474eaf5b2e7de33fbce1 lib/Sys/Path.pm
+SHA1 ed746a160e000a64b0ab06348f538dfc97c99f19 lib/Module/Build/SysPath.pm
+SHA1 e57fe72333e13df04278b2b22099c46ff205bf89 lib/Sys/Path.pm
 SHA1 605f05a5336cc37a476bb10b218f5ad1a2bd340d t/00_compile.t
 SHA1 41533fbd463e42d2ecf1e119eca910c16809d13e t/distribution.t
 SHA1 10c564e5ffe84748070827b350edbf3d6b832b20 t/fixme.t
@@ -50,7 +50,7 @@ SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.9 (GNU/Linux)
 
-iEYEARECAAYFAkqfbtYACgkQC0OgUPgL2ScE2gCfYp7ALjD6Bwj5RpmneaijvCoJ
-4AoAniiL1GyY+isfhGRixeIBLZRql8hZ
-=+lw8
+iEYEARECAAYFAkqgGJIACgkQC0OgUPgL2Se3mACfZf/KO1VVk73INqvc133c+7h3
+Fk4AnAwyW6sgbR7MtP1nZ+rKFfWscBgk
+=h01Q
 -----END PGP SIGNATURE-----

@@ -19,6 +19,9 @@ Sys::Path - get/configure system paths
 
     use Module::Build::SysPath;
     my $builder = Module::Build::SysPath->new(
+        configure_requires => {
+            'Module::Build::SysPath' => 0,
+        },
         ...
 
     use Module::Build;
@@ -27,22 +30,13 @@ Sys::Path - get/configure system paths
     # update system paths during the installation
     my $builder_class = Module::Build->subclass(
         class => 'My::Builder',
-        code => q{
-            use Sys::Path;
-            sub new {
-                my $class = shift;
-                my $builder = $class->SUPER::new(@_);
-                return Sys::Path->post_new($builder);
-            }
-            sub ACTION_install {
-                my $builder = shift;
-                $builder->SUPER::ACTION_install(@_);
-                Sys::Path->ACTION_post_install($builder);
-            }
-        },
+        code => q{ unshift @INC, 'Module::Build::SysPath'; },
     );
     
     my $builder = $builder_class->new(
+        configure_requires => {
+            'Module::Build::SysPath' => 0,
+        },
         ...
 
 =head1 NOTE
@@ -133,12 +127,9 @@ TODO for next version...
 use warnings;
 use strict;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use File::Spec;
-use IO::Any;
-use List::MoreUtils 'any';
-use FindBin '$Bin';
 
 BEGIN {
     my $home = eval { local $SIG{__DIE__}; (getpwuid($>))[7] } || $ENV{HOME};
@@ -168,15 +159,6 @@ use base 'SysPathConfig';
     state
 
 =cut
-
-=head2 ACTION_post_install($builder [, $module_name])
-
-Action that should be run after L<Module::Build> ACTION_install.
-
-=cut
-
-sub ACTION_post_install {
-}
 
 1;
 
