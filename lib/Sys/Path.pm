@@ -20,8 +20,11 @@ Sys::Path - get/configure system paths
     use Module::Build::SysPath;
     my $builder = Module::Build::SysPath->new(
         configure_requires => {
-            'Module::Build::SysPath' => 0,
+            'Module::Build::SysPath' => 0.06,
         },
+        build_requires => {
+            'Module::Build::SysPath' => 0.06,
+        }
         ...
 
     use Module::Build;
@@ -35,8 +38,11 @@ Sys::Path - get/configure system paths
     
     my $builder = $builder_class->new(
         configure_requires => {
-            'Module::Build::SysPath' => 0,
+            'Module::Build::SysPath' => 0.06,
         },
+        build_requires => {
+            'Module::Build::SysPath' => 0.06,
+        }
         ...
 
 =head1 NOTE
@@ -56,7 +62,7 @@ all other non-standard Perl installations or systems the default prefix is
 the prefix of Perl it self. Still those are just defaults and can be changed
 during C<perl Build.PL> prompting. After L<Sys::Path> is configured and installed
 all modules using it can just read/use the paths set. In addition to the system
-wide L<SysPathConfig> this file (F<SysPathConfig.pm>) can be added to F<$HOME/.syspath/>
+wide L<SPc>, (F<SPc.pm>) can be added to F<$HOME/.syspath/>
 folder in which case it has a preference over the system wide one.
 
 =head2 USAGE
@@ -84,13 +90,13 @@ After install:
     Installing /usr/share/acme-syspath/tt/index.tt2
     Installing /usr/share/acme-syspath/images/smile.ascii
     Installing /usr/local/share/perl/5.10.0/Acme/SysPath.pm
-    Installing /usr/local/share/perl/5.10.0/Acme/SysPath/SysPathConfig.pm
-    Installing /usr/local/man/man3/Acme::SysPath::SysPathConfig.3pm
+    Installing /usr/local/share/perl/5.10.0/Acme/SysPath/SPc.pm
+    Installing /usr/local/man/man3/Acme::SysPath::SPc.3pm
     Installing /usr/local/man/man3/Acme::SysPath.3pm
     Installing /etc/acme-syspath.cfg
     Writing /usr/local/lib/perl/5.10.0/auto/Acme/SysPath/.packlist
 
-    Acme-SysPath$ cat /usr/local/share/perl/5.10.0/Acme/SysPath/SysPathConfig.pm
+    Acme-SysPath$ cat /usr/local/share/perl/5.10.0/Acme/SysPath/SPc.pm
     ...
     sub prefix {'/usr'};
     sub sysconfdir {'/etc'};
@@ -104,10 +110,10 @@ After install:
     ~$ perl -MAcme::SysPath -le 'print Acme::SysPath->image;'
     ... try your self :-P
 
-First step is to have a L<My::App::SysPathConfig>. Take one of:
+First step is to have a L<My::App::SPc>. Take:
 
-L<http://github.com/jozef/Acme-SysPath/blob/a4c28e33696a23445bc08aa985b5d26affbc6345/lib/Acme/SysPath/SysPathConfig.pm>
-L<http://github.com/jozef/Sys-Path/blob/c84b5406e96672b73b2f45680c8890aefb6ff41b/examples/Sys-Path-Example1/lib/Sys/Path/Example1/SysPathConfig.pm>
+F<lib/Acme/SysPath/SPc.pm> ||
+F<examples/Sys-Path-Example1/lib/Sys/Path/Example1/SPc.pm>
 
 Then keep the needed paths and set then to your distribution taste. (someone
 likes etc, someone likes F<cfg> or F<conf> or ...) Then replace the L<Module::Build>
@@ -127,7 +133,7 @@ TODO for next version...
 use warnings;
 use strict;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use File::Spec;
 
@@ -138,11 +144,11 @@ BEGIN {
         my $syspath_home = File::Spec->catdir($home, '.syspath');
         if (-d $syspath_home) {
             local @INC = ($syspath_home);
-            eval { require 'SysPathConfig' };
+            eval 'use SPc';
         }
     }
 }
-use base 'SysPathConfig';
+use base 'SPc';
 
 =head1 METHODS
 
@@ -164,6 +170,16 @@ use base 'SysPathConfig';
 
 
 __END__
+
+=head1 FAQ
+
+=head2 Why "SPc" ?
+
+1. it is short (much more than SysPatchConfig)
+
+2. it is weird
+
+3. it's so weird that it is uniq, so there will be no conflict. (hopefully)
 
 =head1 AUTHOR
 
