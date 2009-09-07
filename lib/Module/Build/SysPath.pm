@@ -20,13 +20,12 @@ A subclass of L<Module::Build>. See L<Sys::Path> for description and usage.
 use warnings;
 use strict;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use base 'Module::Build';
 use Sys::Path;
 use List::MoreUtils 'any';
 use FindBin '$Bin';
-use IO::Any;
 
 our $sys_path_config_name = 'SPc';
 
@@ -57,10 +56,7 @@ sub new {
         # skip prefix and localstatedir those are not really destination paths
         next
             if any { $_ eq $path_type } ('prefix' ,'localstatedir');
-        # skip if the path doesn't exist
-        next
-            if not -d $sys_path;
-        
+
         # prepare a list of files to install
         $builder->{'properties'}->{$path_type.'_files'} = {
             map {
@@ -72,7 +68,7 @@ sub new {
             }
             grep { -f $_ }
             @{$builder->rscan_dir($sys_path)}
-        };
+        } if -d $sys_path;
         
         # set instalation paths
         $builder->{'properties'}->{'install_path'}->{$path_type} = Sys::Path->$path_type;
@@ -121,9 +117,10 @@ sub ACTION_install {
     unlink $installed_module_filename;
     
     # write the new version of SPc.pm
-    my $config_fh      = IO::Any->read([$module_filename]);
-    my $real_config_fh = IO::Any->write([$installed_module_filename]);
+    open(my $config_fh, '<', $module_filename) or die $!;
+    open(my $real_config_fh, '>', $installed_module_filename) or die $!;
     while (my $line = <$config_fh>) {
+        next if ($line =~ m/# remove after install$/);
         if ($line =~ m/^sub \s+ ($path_types) \s* {/xms) {
             $line = 'sub '.$1." {'".Sys::Path->$1."'};"."\n";
         }
