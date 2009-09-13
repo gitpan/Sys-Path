@@ -1,7 +1,12 @@
 package inc::MyBuilder;
 
+use strict;
+use warnings;
+
 use File::Spec;
+use ExtUtils::Install;
 use base 'Module::Build';
+use File::Path 'mkpath';
 
 sub ACTION_build {
 	my $self = shift;
@@ -24,8 +29,22 @@ sub ACTION_build {
 	}
 	close($blib_config_fh);
 	close($config_fh);
-	
+		
 	return;
+}
+
+sub ACTION_install {
+	my $self = shift;
+	my @args = @_;
+	
+	$self->SUPER::ACTION_install(@args);
+	
+	my $sharedstatedir = File::Spec->catdir(
+		$self->install_map->{File::Spec->catdir('blib', 'sharedstatedir')},
+		'syspath',
+	);
+	mkpath($sharedstatedir)
+		if not -d $sharedstatedir;
 }
 
 1;

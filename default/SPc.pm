@@ -9,7 +9,7 @@ SPc - build-time system path configuration
 use warnings;
 use strict;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use File::Spec;
 
@@ -19,13 +19,14 @@ sub _path_types {qw(
 	sysconfdir
 	datadir
 	docdir
-	cache
-	log
-	spool
-	run
-	lock
-	state
+	cachedir
+	logdir
+	spooldir
+	rundir
+	lockdir
 	localedir
+	sharedstatedir
+	webdir
 )};
 
 =head1 PATHS
@@ -40,17 +41,28 @@ sub _path_types {qw(
 
 =head2 docdir
 
-=head2 cache
+=head2 localedir
 
-=head2 log
+=head2 cachedir
 
-=head2 spool
+=head2 logdir
 
-=head2 run
+=head2 spooldir
 
-=head2 lock
+=head2 rundir
 
-=head2 state
+=head2 lockdir
+
+=head2 sharedstatedir
+
+/var/lib
+
+The directory for installing modifiable architecture-independent data.
+http://www.pathname.com/fhs/pub/fhs-2.3.html#VARLIBVARIABLESTATEINFORMATION
+
+=head2 webdir
+
+/var/www
 
 =cut
 
@@ -75,12 +87,13 @@ sub sysconfdir { shift; $sysconfdir = $_[0] if @_; return $sysconfdir; };
 sub datadir    { File::Spec->catdir(__PACKAGE__->prefix, 'share') };
 sub docdir     { File::Spec->catdir(__PACKAGE__->prefix, 'share', 'doc') };
 sub localedir  { File::Spec->catdir(__PACKAGE__->prefix, 'share', 'locale') };
-sub cache      { File::Spec->catdir(__PACKAGE__->localstatedir, 'cache') };
-sub log        { File::Spec->catdir(__PACKAGE__->localstatedir, 'log') };
-sub spool      { File::Spec->catdir(__PACKAGE__->localstatedir, 'spool') };
-sub run        { File::Spec->catdir(__PACKAGE__->localstatedir, 'run') };
-sub lock       { File::Spec->catdir(__PACKAGE__->localstatedir, 'lock') };
-sub state      { File::Spec->catdir(__PACKAGE__->localstatedir, 'state') };
+sub cachedir   { File::Spec->catdir(__PACKAGE__->localstatedir, 'cache') };
+sub logdir     { File::Spec->catdir(__PACKAGE__->localstatedir, 'log') };
+sub spooldir   { File::Spec->catdir(__PACKAGE__->localstatedir, 'spool') };
+sub rundir     { File::Spec->catdir(__PACKAGE__->localstatedir, 'run') };
+sub lockdir    { File::Spec->catdir(__PACKAGE__->localstatedir, 'lock') };
+sub sharedstatedir { File::Spec->catdir(__PACKAGE__->localstatedir, 'lib') };
+sub webdir     { File::Spec->catdir(__PACKAGE__->localstatedir, 'www') };
 
 1;
 

@@ -1,6 +1,6 @@
 ---
 name: Sys-Path
-version: 0.07
+version: 0.08
 author:
   - 'Jozef Kutej <jkutej@cpan.org>'
 abstract: get/configure system paths
@@ -10,19 +10,23 @@ resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/jozef/Sys-Path.git
 build_requires:
+  File::Path: 0
   Test::More: 0
 requires:
+  Digest::MD5: 0
   File::Spec: 0
+  JSON::Util: 0
   List::MoreUtils: 0
+  Text::Diff: 0
 configure_requires:
   Module::Build: 0.340201
 provides:
   Module::Build::SysPath:
     file: lib/Module/Build/SysPath.pm
-    version: 0.07
+    version: 0.08
   Sys::Path:
     file: lib/Sys/Path.pm
-    version: 0.07
+    version: 0.08
 generated_by: Module::Build version 0.340201
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
