@@ -1,4 +1,4 @@
-package SPc;
+package Sys::Path::SPc;
 
 =head1 NAME
 
@@ -9,7 +9,7 @@ SPc - build-time system path configuration
 use warnings;
 use strict;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use File::Spec;
 

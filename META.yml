@@ -1,16 +1,16 @@
 ---
 name: Sys-Path
-version: 0.08
+version: 0.09
 author:
   - 'Jozef Kutej <jkutej@cpan.org>'
-abstract: get/configure system paths
+abstract: supply autoconf style installation directories
 license: perl
 resources:
   bugtracker: http://github.com/jozef/Sys-Path/issues
   license: http://dev.perl.org/licenses/
   repository: git://github.com/jozef/Sys-Path.git
 build_requires:
-  File::Path: 0
+  Test::Compile: 0.08
   Test::More: 0
 requires:
   Digest::MD5: 0
@@ -19,15 +19,15 @@ requires:
   List::MoreUtils: 0
   Text::Diff: 0
 configure_requires:
-  Module::Build: 0.340201
+  Module::Build: 0.35
 provides:
-  Module::Build::SysPath:
-    file: lib/Module/Build/SysPath.pm
-    version: 0.08
   Sys::Path:
     file: lib/Sys/Path.pm
-    version: 0.08
-generated_by: Module::Build version 0.340201
+    version: 0.09
+  Sys::Path::SPc:
+    file: lib/Sys/Path/SPc.pm
+    version: 0.09
+generated_by: Module::Build version 0.35
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
