@@ -1,6 +1,6 @@
 ---
 name: Sys-Path
-version: 0.09
+version: 0.10
 author:
   - 'Jozef Kutej <jkutej@cpan.org>'
 abstract: supply autoconf style installation directories
@@ -23,10 +23,10 @@ configure_requires:
 provides:
   Sys::Path:
     file: lib/Sys/Path.pm
-    version: 0.09
+    version: 0.10
   Sys::Path::SPc:
     file: lib/Sys/Path/SPc.pm
-    version: 0.09
+    version: 0.10
 generated_by: Module::Build version 0.35
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

@@ -2,8 +2,57 @@ NAME
     Sys::Path - supply autoconf style installation directories
 
 SYNOPSIS
+    Paths for basic Unix instalation when Perl is in /usr/bin:
+
+        use Sys::Path;
+
+        print Sys::Path->sysconfdir, "\n";
+        # /etc
+        print Sys::Path->datadir, "\n";
+        # /usr/share
+        print Sys::Path->logdir, "\n";
+        # /var/log
+        print Sys::Path->sharedstatedir, "\n";
+        # /var/lib
+
+    Paths for Unix when Perl is in home dir /home/daxim/local/bin:
+
+        print Sys::Path->sysconfdir, "\n";
+        # /home/daxim/local/etc
+        print Sys::Path->datadir, "\n";
+        # /home/daxim/local/share
+        print Sys::Path->logdir, "\n";
+        # /home/daxim/local/log
+        print Sys::Path->sharedstatedir, "\n";
+        # /home/daxim/local/lib
+
+    Paths for MS Windows Strawberry Perl when installed to C:\Strawberry\
+
+        print Sys::Path->sysconfdir, "\n";
+        # C:\Strawberry\etc
+        print Sys::Path->datadir, "\n";
+        # C:\Strawberry\share
+        print Sys::Path->logdir, "\n";
+        # C:\Strawberry\log
+        print Sys::Path->sharedstatedir, "\n";
+        # C:\Strawberry\lib
+
 DESCRIPTION
-BUILD
+    The goal is that Sys::Path provides autoconf style system paths.
+
+    The default paths for file locations are based on
+    http://www.pathname.com/fhs/ (Filesystem Hierarchy Standard) if the Perl
+    was installed in /usr. For all other non-standard Perl installations or
+    systems the default prefix is the prefix of Perl it self. Still those
+    are just defaults and can be changed during `perl Build.PL' prompting.
+    After Sys::Path is configured and installed all programs using it can
+    just read/use the paths.
+
+    In addition Sys::Path includes some functions that are related to
+    modules build or instalation. For now there is only Module::Build based
+    Module::Build::SysPath that uses Sys::Path.
+
+BUILD TIME CONFIGURATION
         PERL_MM_USE_DEFAULT=1 perl Build.PL \
             --sp-prefix=/usr/local \
             --sp-sysconfdir=/usr/local/etc \
@@ -11,78 +60,12 @@ BUILD
 
 NOTE
     This is an experiment and lot of questions and concerns can come out
-    about the paths configuration. Module::Build integration and the naming.
-    And as this is early version thinks may change. For these purposes there
-    is a mailing list http://lists.meon.sk/mailman/listinfo/sys-path.
-
-DESCRIPTION
-    This module tries to solve the problem of working with data files,
-    configuration files, images, logs, locks, ..., any non-*.pm files within
-    distribution tar-balls. The default paths for file locations are based
-    on http://www.pathname.com/fhs/ (Filesystem Hierarchy Standard) if the
-    Perl was installed in /usr. For all other non-standard Perl
-    installations or systems the default prefix is the prefix of Perl it
-    self. Still those are just defaults and can be changed during `perl
-    Build.PL' prompting. After Sys::Path is configured and installed all
-    modules using it can just read/use the paths set.
-
-  USAGE
-    Sys::Path primary usage is for module authors to allow them to find
-    their data files as during development and testing but also when
-    installed. How? Let's look at an example distribution Acme::SysPath that
-    needs a configuration file an image file and a template file. It has
-    path()+template()+image() functions. While working in the distribution
-    tree:
-
-        Acme-SysPath$ perl -Ilib -MAcme::SysPath -le 'print Acme::SysPath->config, "\n", Acme::SysPath->template;'
-        /home/jozef/prog/Acme-SysPath/conf/acme-syspath.cfg
-        /home/jozef/prog/Acme-SysPath/share/acme-syspath/tt/index.tt2
-
-    After install:
-
-        Acme-SysPath$ perl Build.PL && ./Build && ./Build test
-        Acme-SysPath$ sudo ./Build install
-        Copying lib/Acme/SysPath.pm -> blib/lib/Acme/SysPath.pm
-        Manifying blib/lib/Acme/SysPath.pm -> blib/libdoc/Acme::SysPath.3pm
-        Installing /usr/share/acme-syspath/tt/index.tt2
-        Installing /usr/share/acme-syspath/images/smile.ascii
-        Installing /usr/local/share/perl/5.10.0/Acme/SysPath.pm
-        Installing /usr/local/share/perl/5.10.0/Acme/SysPath/SPc.pm
-        Installing /usr/local/man/man3/Acme::SysPath::SPc.3pm
-        Installing /usr/local/man/man3/Acme::SysPath.3pm
-        Installing /etc/acme-syspath.cfg
-        Writing /usr/local/lib/perl/5.10.0/auto/Acme/SysPath/.packlist
-
-        Acme-SysPath$ cat /usr/local/share/perl/5.10.0/Acme/SysPath/SPc.pm
-        ...
-        sub prefix {'/usr'};
-        sub sysconfdir {'/etc'};
-        sub datadir {'/usr/share'};
-        ...
-    
-        ~$ perl -MAcme::SysPath -le 'print Acme::SysPath->config, "\n", Acme::SysPath->template;'
-        /etc/acme-syspath.cfg
-        /usr/share/acme-syspath/tt/index.tt2
-    
-        ~$ perl -MAcme::SysPath -le 'print Acme::SysPath->image;'
-        ... try your self :-P
-
-    First step is to have a My::App::SPc. Take:
-
-    lib/Acme/SysPath/SPc.pm ||
-    examples/Sys-Path-Example1/lib/Sys/Path/Example1/SPc.pm
-
-    Then keep the needed paths and set then to your distribution taste.
-    (someone likes etc, someone likes cfg or conf or ...) Then replace the
-    Module::Build in Build.PL with Module::Build::SysPath. And finally
-    populate the etc/, cfg/, conf/, share/, doc/, ... with some useful
-    content.
+    about the paths configuration. Distributions build systems integration
+    and the naming. And as this is early version thinks may change. For
+    these purposes there is a mailing list
+    http://lists.meon.sk/mailman/listinfo/sys-path.
 
   WHY?
-    To place and then find files on the filesystem where they are suppose to
-    be. There is a Filesystem Hierarchy Standard -
-    http://www.pathname.com/fhs/:
-
     The filesystem standard has been designed to be used by Unix
     distribution developers, package developers, and system implementors.
     However, it is primarily intended to be a reference and is not a
@@ -103,58 +86,99 @@ DESCRIPTION
     prefix
     /usr - `$Config::Config{'prefix'}'
 
+    Is a helper function and should not be used directly.
+
     localstatedir
     /var - `$Config::Config{'prefix'}'
+
+    Is a helper function and should not be used directly.
 
     sysconfdir
     /etc - $prefix/etc
 
+    The /etc hierarchy contains configuration files. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#ETCHOSTSPECIFICSYSTEMCONFIG
+    URATION.
+
     datadir
     /usr/share - $prefix/share
+
+    The /usr/share hierarchy is for all read-only architecture independent
+    data files. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#USRSHAREARCHITECTUREINDEPEN
+    DENTDATA.
 
     docdir
     /usr/share/doc - $prefix/share/doc
 
+    See datadir
+
     localedir
     /usr/share/locale - $prefix/share/locale
+
+    See datadir
 
     cachedir
     /var/cache - $localstatedir/cache
 
+    /var/cache is intended for cached data from applications. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#VARCACHEAPPLICATIONCACHEDAT
+    A.
+
     logdir
     /var/log - $localstatedir/logdir
+
+    This directory contains miscellaneous log files. Most logs must be
+    written to this directory or an appropriate subdirectory. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#VARLOGLOGFILESANDDIRECTORIE
+    S.
 
     spooldir
     /var/spool - $localstatedir/spool
 
+    Contains data which is awaiting some kind of later processing. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#VARSPOOLAPPLICATIONSPOOLDAT
+    A.
+
     rundir
     /var/run - $localstatedir/rundir
 
+    This directory contains system information data describing the system
+    since it was booted. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#VARRUNRUNTIMEVARIABLEDATA.
+
     lockdir
     /var/lock - $localstatedir/lock
+
+    Lock files folder. See
+    http://www.pathname.com/fhs/pub/fhs-2.3.html#VARLOCKLOCKFILES.
 
     sharedstatedir
     /var/lib - $localstatedir/lib
 
     The directory for installing modifiable architecture-independent data.
+    See
     http://www.pathname.com/fhs/pub/fhs-2.3.html#VARLIBVARIABLESTATEINFORMAT
-    ION
+    ION.
 
     webdir
     /var/www - $localstatedir/www
 
-  USE CASES
-    system installation
-    TODO
-
-    custom perl installation
-    TODO
-
-    homedir installation
-    TODO
+    Not defined by FHS but it is a place to put web page related (html, js,
+    css, ...) files.
 
   HOW IT WORKS
-    TODO for next version...
+    The heart of Sys::Path is just:
+
+        use Config;
+        if ($Config::Config{'prefix'} eq '/usr') { ... do stuff ... }
+
+    The idea is that if the Perl was installed to /usr it is FHS type
+    installation and all path defaults are made based on FHS. For the rest
+    of the installations `prefix' and `localstatedir' is set exactly to
+    `$Config::Config{'prefix'}' which is the prefix of Perl that was used to
+    install. In this case `sysconfdir' is set to `prefix+'etc''. See
+    Sys::Path::SPc for the implementation.
 
 METHODS
         prefix
@@ -185,6 +209,9 @@ BUILDERS/INSTALLERS helper methods
 
   install_checksums(%filenames_with_checksums)
     Getter and setter for files checksums recording.
+
+SEE ALSO
+    Module::Build::SysPath
 
 FAQ
   Why "SPc" ?
@@ -237,7 +264,6 @@ SUPPORT
     * Search CPAN
         http://search.cpan.org/dist/Sys-Path
 
-ACKNOWLEDGEMENTS
 COPYRIGHT & LICENSE
     Copyright 2009 Jozef Kutej, all rights reserved.
 

@@ -9,7 +9,7 @@ SPc - build-time system path configuration
 use warnings;
 use strict;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use File::Spec;
 
@@ -30,6 +30,8 @@ sub _path_types {qw(
 )};
 
 =head1 PATHS
+
+See L<Sys::Path/PATHS for details>
 
 =head2 prefix
 
@@ -56,9 +58,6 @@ sub _path_types {qw(
 =head2 sharedstatedir
 
 /var/lib
-
-The directory for installing modifiable architecture-independent data.
-http://www.pathname.com/fhs/pub/fhs-2.3.html#VARLIBVARIABLESTATEINFORMATION
 
 =head2 webdir
 
