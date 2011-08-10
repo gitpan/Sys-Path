@@ -1,0 +1,46 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.68.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 5c0031c99b83d846ab41406643239d8c32524742 Build.PL
+SHA1 7743c671bac32ffb14aefe14ab8f43bb3c108f8a Changes
+SHA1 e9395575d7e0dc28cc76d93cdde07ac082312b4e MANIFEST
+SHA1 9a708b67375de526e88ce1917a199313a5c2fd1e META.json
+SHA1 f9670bde8e953664c1e97f293068f8377e3c6606 META.yml
+SHA1 d9526f758b5d8de73dc90e07809e9be7d6177b3b README
+SHA1 f6cfd3511d671128473345c2ec37e90966a4f9e1 examples/SPc.pm
+SHA1 5b80f4dbe847d1233902ba305a7e75362bb2fd26 inc/MyBuilder.pm
+SHA1 1359cd9e15ee236e17e3c45ef9dc7e217b052292 lib/Sys/Path.pm
+SHA1 98e7b06dcbeb4a8f59250f40cd412d1c5c9ea9c7 lib/Sys/Path/SPc.pm
+SHA1 f142360956278de2f58e0cac901d3f1fed2bb7bc t/01_Sys-Path.t
+SHA1 41533fbd463e42d2ecf1e119eca910c16809d13e t/distribution.t
+SHA1 34aff7c822cedaada5281c383289733c957d1623 t/fixme.t
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 t/libs/v1/Build.PL
+SHA1 a0a4da86d94fb904d9f6348c7fdbe258091a2f48 t/libs/v1/lib/TestDR/build.pm
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 t/libs/v2/Makefile.PL
+SHA1 51e9b7bc33d2aa0fedcdd50f0e407faf039a5e34 t/libs/v2/lib/TestDR/makefile.pm
+SHA1 137a63b7b3f70286ff1f24831b6ed9d413154db4 t/libs/v3/lib/TestDR/F/F2/t.pm
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 t/libs/v3/t/.exists
+SHA1 0b1c5a2d59be6bfa7d60c64cd964fea6a0331705 t/pod-coverage.t
+SHA1 d9ace07c5b5cc26de5bcccef22b1f7e19c8d4fa0 t/pod-spell.t
+SHA1 640935336dc1123c0069bcf5432bcaedc2cf22d3 t/pod.t
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 varlib/syspath/.exists
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iEYEARECAAYFAk5CvWAACgkQC0OgUPgL2SeCMACgtw+GYYC+dA09aD6OsVz/HHXY
+zc8AnAnvm+sjOcH1Ydm7HyJAtlxbKgHd
+=qX/u
+-----END PGP SIGNATURE-----
