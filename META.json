@@ -4,7 +4,7 @@
       "Jozef Kutej <jkutej@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110930",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112150",
    "keywords" : [
       "system",
       "paths",
@@ -33,11 +33,12 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.3607"
          }
       },
       "runtime" : {
          "requires" : {
+            "Cwd" : 0,
             "Digest::MD5" : 0,
             "File::Spec" : 0,
             "JSON::Util" : 0,
@@ -49,11 +50,11 @@
    "provides" : {
       "Sys::Path" : {
          "file" : "lib/Sys/Path.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       },
       "Sys::Path::SPc" : {
          "file" : "lib/Sys/Path/SPc.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       }
    },
    "release_status" : "stable",
@@ -68,5 +69,5 @@
          "url" : "git://github.com/jozef/Sys-Path.git"
       }
    },
-   "version" : "0.11"
+   "version" : "0.12"
 }
