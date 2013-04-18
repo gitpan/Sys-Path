@@ -4,7 +4,7 @@
       "Jozef Kutej <jkutej@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110440",
    "keywords" : [
       "system",
       "paths",
@@ -50,7 +50,7 @@
    "provides" : {
       "Sys::Path" : {
          "file" : "lib/Sys/Path.pm",
-         "version" : "0.12"
+         "version" : "0.13"
       },
       "Sys::Path::SPc" : {
          "file" : "lib/Sys/Path/SPc.pm",
@@ -66,8 +66,9 @@
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
+         "type" : "git",
          "url" : "git://github.com/jozef/Sys-Path.git"
       }
    },
-   "version" : "0.12"
+   "version" : "0.13"
 }
